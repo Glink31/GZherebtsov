@@ -1,4 +1,7 @@
-n = int(input ("Введите число n "))
+n = int(input ("Введите нечётное число n "))
+while n%2 == 0:
+    print("ввод некорректен")
+    n = int(input("Введите нечётное число n "))
 for i in range (n, 0, -2):
     for k in range (n//2-i//2):
         print(" ",end="")
