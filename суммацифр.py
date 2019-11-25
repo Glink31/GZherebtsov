@@ -1,7 +1,8 @@
 a = int(input("Введите число: "))
-n = 10
-b = a - (a // n)
-while b > 9:    
-    n = n * 10 
-    b = a - (a // n)
-print(f"{b}")
+b = 10 
+d = 0
+while a > 0:
+    b = a % 10
+    a = a // 10
+    d = d + b
+print(f"{d}")
