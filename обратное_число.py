@@ -1,9 +1,10 @@
 def rev (a):
-    b = a % 10
-    return b    
+    if a > 0:
+        b = a % 10
+        print (b,end="")
+        return rev (a // 10)
+    else:
+        return()
 a = int(input("Введите число: "))
-while a > 0:
-    b = rev(a)
-    print (b,end="")
-    a = a // 10
+b = rev (a)
 print()
