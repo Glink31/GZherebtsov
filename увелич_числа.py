@@ -1,10 +1,9 @@
 def smth (a):
-    if a > 0:
-        b = a % 10
-        b = b + 1
-        if b == 10:
-            b = 0
-        return smth (a // 10)
+    b = a % 10 + 1
+    if a > 0 and b == 10:
+        b = 0
+    smth (a // 10)
+    print (b,end="")    
 a = int(input("Введите число "))
-b = smth (a)
+smth (a)
 print()
