@@ -1,12 +1,9 @@
-def sum (a):
-    b = (a + 1) % a
-    if b != 0:
-        if b % 2 == 1:
-            if a % 2 == 1:
-                c = a + sum(b)
-            else:
-                c = b + sum (b)
-        return c
+def sum (a): 
+    if a % 2 == 0:
+        a -= 1
+    if a == 1:
+        return 1
+    return sum (a-2) + a
 a = int(input("Введите число: "))
 c = sum(a)
 print (c)

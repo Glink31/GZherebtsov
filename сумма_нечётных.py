@@ -1,10 +1,8 @@
 a = int(input("Введите число: "))
+if a % 2 == 0:
+    a-=1
 b = 1
-d = 0
-if a % 2 == 1:
-    d = a
-while b != 0:
-    if b % 2 == 1:
-        d = d + b
-    b = (b + 1) % a
-print (d)
+while b != a:
+    d = a + b
+    b = (b + 2) % a
+print(d)
