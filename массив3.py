@@ -8,9 +8,8 @@ for i in range (b):
     c = randint(-5,10)
     a.append(c)
 mass (a)
-d = c-1
-for i,x in enumerate(a):
-    if x > d:
-        d = x
+p = 0
+for i in range(1,len(a)):
+    if a[i] > a[p]:
         p = i
-print(p)
+print(f'наибольшее: {p}. {a[p]}')
