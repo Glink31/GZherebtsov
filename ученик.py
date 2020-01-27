@@ -1,17 +1,16 @@
 a = []
 for i in range (5):
     a.append (int(input('введите оценку ученика: ')))
-b = False
-c = 0
+bad = False
+exc = True
 for i in range(len(a)):
     if a[i] <= 2:
-        print('ученик - двоечник')
-        b = True
-        break
-    if a[i] == 5:
-        c += 1
-if c == len(a):
+        bad = True
+    if a[i] < 5:
+        exc = False
+if exc:
     print('ученик - отличник')
-    b = True
-if not b:
+elif bad:
+    print('ученик - двоечник')
+else:
     print('ученик - обычный')
