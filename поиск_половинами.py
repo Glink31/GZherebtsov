@@ -18,15 +18,15 @@ e2 = len(a)-1
 h = len(a)//2
 f = int(input('Введите искомое число: '))
 found = False 
-while e1!=e2 and not found:
+while e1 <= e2 and not found:
     if a[h] == f:
         print(f'число найдено под номером {h}')
         found = True
-    elif a[h] > f:
-        e2 = h-1
-        h = h-(e2-e1)-1 
     elif a[h] < f:
         e1 = h+1
-        h = h+(e2-e1)+1
+        h = (e1+e2)//2
+    elif a[h] > f:
+        e2 = h-1
+        h = (e2+e1)//2
 if not found:
     print('такого числа нет')
