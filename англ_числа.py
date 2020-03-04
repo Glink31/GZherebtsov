@@ -5,6 +5,8 @@ orders = ['','thousand','million','billion']
 a = int(input('Введите число: '))
 x = 0
 k = ''
+if a == 0:
+    
 while a != 0 and x < len(orders):
     exc = False
     emp = False
@@ -17,7 +19,7 @@ while a != 0 and x < len(orders):
         hun = True
     if (b//10)%10 == 1:
         n2 = teens[b%10]
-        exc = True 
+        exc = True
     elif (b//10)%10 > 1:
         n2 = tens[(b//10)%10]
     else:
@@ -29,12 +31,29 @@ while a != 0 and x < len(orders):
     if b%10 == 0 and (b//10)%10 == 0 and b//100 == 0:
         emp = True
     if not emp:
-        if hun:
-            f=n3+' '+'hundred '+n2+' '+n1+' '+orders[x]+' '
-            k = f + k
-        else:
-            f=n3+' '+n2+' '+n1+' '+orders[x]+' '
-            k = f + k
+        if hun:  
+            f = n3+' hundred '
+            if n2 == '':
+                f += n2
+            elif n2 != '':
+                f += n2+' '
+            if n1 == '':
+                f += n1
+            elif n1 != '':
+                f += n1+' '
+            f += orders[x]+' '
+            k = f+k
+        elif not hun and n2 != '':
+            f = n2 +' '
+            if n1 == '':
+                f += n1
+            elif n1 != '':
+                f += n1+' '
+            f += orders[x]+' '
+            k = f+k
+        elif not hun and n2 == '':
+            f = n1+' '+orders[x]+' '
+            k = f+k
     a = a // 1000
     x += 1
 print(k)
