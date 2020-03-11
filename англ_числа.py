@@ -6,8 +6,11 @@ a = int(input('Введите число: '))
 x = 0
 k = ''
 if a == 0:
-    
-while a != 0 and x < len(orders):
+    print('zero')
+if a < 0:
+    print('minus ',end='')
+    a= a*(-1)
+while a > 0 and x < len(orders):
     exc = False
     emp = False
     hun = False
