@@ -1,6 +1,6 @@
 ones = ['','one','two','three','four','five','six','seven','eight','nine']
 tens = ['','','twenty','thirty','fourty','fifty','sixty','seventy','eighty','ninety']
-teens = ['ten','eleven','twelve','thirteen','nineteen','sixteen','seventeen','eighteen','nineteen']
+teens = ['ten','eleven','twelve','thirteen','fourteen','fifteen','sixteen','seventeen','eighteen','nineteen']
 orders = ['','thousand','million','billion']
 a = int(input('Введите число: '))
 x = 0

@@ -17,3 +17,6 @@ for i,x in enumerate(a):
         break
 if not found:
     print('такого числа нет')
+d = int(input("f"))
+a.remove(d)
+mass (a)

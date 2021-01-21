@@ -1,9 +1,33 @@
+import os
 def checkwin (x:str):
     if (field[0][0] == x and field[0][1] == x and field[0][2] == x) or (field[1][0] == x and field[1][1] == x and field[1][2] == x) or (field[2][0] == x and field[2][1] == x and field[2][2] == x) or (field[0][0] == x and field[1][0] == x and field[2][0] == x) or (field[0][1] == x and field[1][1] == x and field[2][1] == x) or (field[0][2] == x and field[1][2] == x and field[2][2] == x) or (field[0][0] == x and field[1][1] == x and field[2][2] == x) or (field[0][2] == x and field[1][1] == x and field[2][0] == x):
         win1 = True
     else:
         win1 = False
     return win1
+score = {}
+winn = []
+if os.path.exists("winners.txt"):
+    f = open("winners.txt", "r")
+    s = f.readline()
+    while s:
+        winn = s.split()
+        score[winn[0]] = int(winn[1])
+        s = f.readline()
+    f.close()
+y = str(input("Введите имя игрока X: "))
+z = str(input("Введите имя игрока O: "))
+yp = False
+zp = False
+for key in score.keys():
+    if y == key:
+        yp = True
+    if z == key:
+        zp = True
+if not yp:
+    score[y] = 0
+if not zp:
+    score[z] = 0
 play = True
 while play:
     emp=['A1','A2','A3','B1','B2','B3','C1','C2','C3']
@@ -18,6 +42,7 @@ while play:
         win = checkwin("O")
         if win:
             print("O победил")
+            score[z] += 1
             break
         inp = False
         while not inp:
@@ -85,6 +110,7 @@ while play:
         win = checkwin("X")
         if win:
             print("X победил")
+            score[y] += 1
             break
         inp = False
         if j == 9:
@@ -159,6 +185,13 @@ while play:
         if b == "N":
             play = False
             answer = True
+            f = open("winners.txt", "w")
+            for k,l in score.items():
+                if l > 0:
+                    f.write(k + " ")
+                    f.write(str(l) + "\n")
+                    print(f"{k} {l}")
+            f.close()
         elif b == "Y":
             answer = True
         else:
